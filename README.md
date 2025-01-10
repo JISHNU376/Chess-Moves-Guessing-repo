@@ -5,6 +5,17 @@ The **Chess Moves Guessing Project** is a Java-based application designed to pre
 
 ---
 
+# Java API Service Starter
+
+This is a minimal Java API service starter based on [Google Cloud Run Quickstart](https://cloud.google.com/run/docs/quickstarts/build-and-deploy/deploy-java-service).
+
+## Getting Started
+
+Server should run automatically when starting a workspace. To run manually, run:
+```sh
+mvn spring-boot:run
+```
+
 ## Features
 - **Chessboard Representation:** A 2D array is used to model the chessboard and initialize the game with standard chess rules.
 - **Move Prediction Logic:** Implements basic rules to predict the next move for a player (currently using simple heuristics).
@@ -87,13 +98,4 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 ---
 
-# Java API Service Starter
 
-This is a minimal Java API service starter based on [Google Cloud Run Quickstart](https://cloud.google.com/run/docs/quickstarts/build-and-deploy/deploy-java-service).
-
-## Getting Started
-
-Server should run automatically when starting a workspace. To run manually, run:
-```sh
-mvn spring-boot:run
-```
