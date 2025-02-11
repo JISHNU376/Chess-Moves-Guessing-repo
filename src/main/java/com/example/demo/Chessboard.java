@@ -4,50 +4,46 @@ public class Chessboard {
     private String[][] board;
 
     public Chessboard() {
-        // Initialize the chessboard
+        initializeBoard();
+    }
+
+    public void initializeBoard() {
         board = new String[8][8];
 
-        // Place pawns
-        for (int i = 0; i < 8; i++) {
-            board[1][i] = "WP"; // White Pawns
-            board[6][i] = "BP"; // Black Pawns
-        }
+        // Default chess setup
+        board[0] = new String[]{"WR", "WN", "WB", "WQ", "WK", "WB", "WN", "WR"};
+        board[1] = new String[]{"WP", "WP", "WP", "WP", "WP", "WP", "WP", "WP"};
+        board[6] = new String[]{"BP", "BP", "BP", "BP", "BP", "BP", "BP", "BP"};
+        board[7] = new String[]{"BR", "BN", "BB", "BQ", "BK", "BB", "BN", "BR"};
 
-        // Place rooks
-        board[0][0] = "WR"; // White Rook
-        board[0][7] = "WR";
-        board[7][0] = "BR"; // Black Rook
-        board[7][7] = "BR";
-
-        // Place knights
-        board[0][1] = "WN"; // White Knight
-        board[0][6] = "WN";
-        board[7][1] = "BN"; // Black Knight
-        board[7][6] = "BN";
-
-        // Place bishops
-        board[0][2] = "WB"; // White Bishop
-        board[0][5] = "WB";
-        board[7][2] = "BB"; // Black Bishop
-        board[7][5] = "BB";
-
-        // Place queens
-        board[0][3] = "WQ"; // White Queen
-        board[7][3] = "BQ"; // Black Queen
-
-        // Place kings
-        board[0][4] = "WK"; // White King
-        board[7][4] = "BK"; // Black King
-
-        // Fill empty spaces
         for (int i = 2; i < 6; i++) {
             for (int j = 0; j < 8; j++) {
-                board[i][j] = "--"; // Empty squares
+                board[i][j] = "--"; // Empty spaces
             }
         }
     }
 
+    public void setPiece(int row, int col, String piece) {
+        board[row][col] = piece;
+    }
+
+    public boolean isValidMove(int row, int col, String piece) {
+        return board[row][col].equals(piece);
+    }
+
     public String[][] getBoard() {
         return board;
+    }
+
+    public void printBoard() {
+        System.out.println("\n=== Chessboard ===");
+        for (int i = 0; i < 8; i++) {
+            System.out.print((8 - i) + " "); // Rank numbers
+            for (int j = 0; j < 8; j++) {
+                System.out.print(board[i][j] + " ");
+            }
+            System.out.println();
+        }
+        System.out.println("  a  b  c  d  e  f  g  h"); // File letters
     }
 }
